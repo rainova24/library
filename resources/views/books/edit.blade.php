@@ -53,7 +53,7 @@
 
                         <label for="name">Publication Date</label>
                         <input type="date" id="publication_date" name="publication_date"
-                            value='{{ $book->publication_date }}'><br>
+                            value="{{ date('Y-m-d', strtotime($book->publication_date)) }}"><br>
 
                         <label for="category">Category</label>
                         <select id="category" name="category_id">

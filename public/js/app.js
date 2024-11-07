@@ -5345,7 +5345,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"]; // Function to confirm delete action
+
+window.confirmDelete = function (event) {
+  if (!confirm('Are you sure you want to delete this item?')) {
+    event.preventDefault(); // Prevent the form submission if the user clicks 'Cancel'
+  }
+};
+
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 
 /***/ }),

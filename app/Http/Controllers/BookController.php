@@ -66,7 +66,7 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
     public function store(Request $request)
     {
         $book = new Book();
@@ -116,7 +116,7 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         // Validate the incoming request data
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|max:255',
             'author' => 'required|max:255',
             'publication_date' => 'required|date',
@@ -124,7 +124,7 @@ class BookController extends Controller
         ]);
 
         // Update the book record using validated data
-        $book->update($request->all());
+        $book->update($validated);
 
         return redirect()->route('books.index')->with('success', 'Book updated successfully.');
     }
@@ -157,7 +157,7 @@ class BookController extends Controller
         ];
     }
 
-    public function export() 
+    public function export()
     {
         // return Excel::download(new BooksExport, 'books.xlsx');
     }
